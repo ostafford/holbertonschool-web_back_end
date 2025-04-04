@@ -1,0 +1,14 @@
+{
+  "name": "es6_classes",
+  "version": "1.0.0",
+  "description": "ES6 Classes project",
+  "main": "index.js",
+  "scripts": {
+    "dev": "npx babel-node"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.26.10",
+    "@babel/node": "^7.26.0",
+    "@babel/preset-env": "^7.26.9"
+  }
+}
