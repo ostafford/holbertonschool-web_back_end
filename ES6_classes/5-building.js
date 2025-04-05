@@ -3,17 +3,20 @@ export default class Building{
         this._sqft = sqft;
 
         if (this.constructor !== Building){
-            }
+            if (this.evacuationWarningMessage === Building.prototype.evacuationWarningMessage) {
+                throw new Error("Class extending Building must override evacuationWarningMessage");
+              }
         }
-        
-        get sqft(){
+    }
+    
+    evacuationWarningMessage(){
+    throw new Error("Class extending Building must override evacuationWarningMessage");
+    }
+
+    get sqft(){
             return this._sqft;
         }
         set sqft(newSqft){
             return this._sqft = newSqft;
         }
-        
-        evacuationWarningMessage(){
-                throw new Error("Class extending Building must override evacuationWarningMessage");
-            }
     }
