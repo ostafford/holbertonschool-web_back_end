@@ -13,7 +13,4 @@ export default class Car {
         const Species = this.constructor[Symbol.species];
         return new Species(this.brand, this.motor, this.color);
     }
-
 }
-
-

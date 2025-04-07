@@ -15,6 +15,21 @@ class ParentClass {
       throw new Error("Child class must override requiredMethod");
     }
   }
+
+  // This tells JavaScript what constructor to use when creating derived objects
+  static get [Symbol.species]() {
+    return this;
+  }
+  
+  // Method to clone this object
+  clone() {
+    // Use the species constructor (which might be ParentClass or a child class)
+    const Species = this.constructor[Symbol.species];
+    
+    // Create a new instance with the same properties
+    return new Species(this.param1, this.param2, this.param3);
+  }
+
   
   // This is a method that must be overridden by any child class
   requiredMethod() {

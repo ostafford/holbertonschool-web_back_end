@@ -5,8 +5,34 @@ class ParentClass {
         this._param3 = param3;
     }
 
+    get param1(){
+         this._param1;
+    }
+    get param2(){
+         this._param2;
+    }
+    get param3(){
+         this._param3;
+    }
+
+    set param1(newParam1){
+         this._param1 = newParam1
+    }
+    set param2(newParam2){
+         this._param2 = newParam2
+    }
+    set param3(newParam3){
+         this._param3 = newParam3
+    }
+
     static get [Symbol.species](){
         return this;
+    }
+    // ========== Explanation ==========
+    // This is what static get [Symbol.species]() { return this; } is doing
+    // but using a regular static method with a normal name
+    static getSpeciesConstructor() {
+    return ParentClass; // Return the class constructor
     }
 
     clone(){
