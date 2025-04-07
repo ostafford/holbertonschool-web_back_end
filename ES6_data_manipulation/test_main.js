@@ -5,6 +5,9 @@ const originalData = getListData();
 console.log("Original data:");
 console.log(originalData);
 
+
+// ========== map() ========== //
+
 // Transform the data with map
 const transformedData = originalData.map(item => {
   return {...item, modified: true};
@@ -33,3 +36,20 @@ const newFormat = originalData.map(item => {
 });
 console.log("New object format:");
 console.log(newFormat);
+
+// =========== filter() ========== //
+
+// Filter objects with even IDs
+const evenIdObjects = originalData.filter(item => item.id % 2 === 0);
+console.log("Objects with even IDs:");
+console.log(evenIdObjects);
+
+// Filter objects with id greater than 0
+const nonZeroIds = originalData.filter(item => item.id > 0);
+console.log("Objects with ID greater than 0:");
+console.log(nonZeroIds);
+
+// Filter objects that have a key property (only the first object)
+const hasKeyProperty = originalData.filter(item => 'key' in item);
+console.log("Objects with a 'key' property:");
+console.log(hasKeyProperty);

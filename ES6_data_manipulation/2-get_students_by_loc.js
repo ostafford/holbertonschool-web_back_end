@@ -5,3 +5,5 @@ export default function getStudentsByLocation(getListStudents, city) {
 
   return getListStudents.filter((students) => students.location === city);
 }
+
+// return = from getListStudents filter every student(Object) with the location equalling the agrument that is passed through "city"
