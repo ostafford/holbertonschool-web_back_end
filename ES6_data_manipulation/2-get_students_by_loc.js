@@ -3,5 +3,5 @@ export default function getStudentsByLocation(studentLocation) {
     return [];
   }
 
-  return studentLocation.filter(student => student.location === 'San Francisco');
+  return studentLocation.filter(students => students.location === 'San Francisco');
 }
