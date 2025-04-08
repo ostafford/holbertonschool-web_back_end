@@ -15,3 +15,8 @@ export default function updateStudentGradeByCity(students, city, newGrades) {
       };
     });
 }
+
+
+//"gradeValue = if the gradeObj (variable beforehand) is true to have a value then assign or make the value of "gradeValue the value of gradeObj.grade:"  does that make sense and correct?
+
+// ...student means to return all the students properties and then add a new property in the object that is called (key) grade and the value of the latest variable because of my previous explanation that is what the value will be. 
