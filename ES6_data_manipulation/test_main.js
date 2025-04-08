@@ -53,3 +53,69 @@ console.log(nonZeroIds);
 const hasKeyProperty = originalData.filter(item => 'key' in item);
 console.log("Objects with a 'key' property:");
 console.log(hasKeyProperty);
+
+// =========== Combining map() and filter() ========== //
+
+// First filter, then map - get IDs of objects with even IDs
+const evenIdValues = originalData
+  .filter(item => item.id % 2 === 0)
+  .map(item => item.id);
+console.log("IDs of objects with even IDs:");
+console.log(evenIdValues);
+
+// Filter after transforming - double all IDs, then filter for values over 2
+const largeDoubledIds = originalData
+  .map(item => ({ ...item, id: item.id * 2 }))
+  .filter(item => item.id > 2);
+console.log("Objects with doubled IDs greater than 2:");
+console.log(largeDoubledIds);
+
+// ========== reduce() ==========
+
+// Sum all IDs
+const sumOfIds = originalData.reduce((acc, item) => acc + item.id, 0);
+console.log("Sum of all IDs:", sumOfIds);
+
+// Concatenate all keys into a single string
+const allKeys = originalData.reduce((acc, item, index) => {
+  // Get the unique key for this object (key, key1, key2)
+  const keyName = index === 0 ? 'key' : `key${index}`;
+  return acc + (acc ? ', ' : '') + keyName;
+}, '');
+console.log("All keys concatenated:", allKeys);
+
+// Count objects with even IDs
+const evenIdCount = originalData.reduce((count, item) => {
+  if (item.id % 2 === 0) {
+    return count + 1;
+  }
+  return count;
+}, 0);
+console.log("Number of objects with even IDs:", evenIdCount);
+
+// Create a new object where IDs are the keys and values are the original objects
+const objectById = originalData.reduce((acc, item) => {
+  acc[item.id] = item;
+  return acc;
+}, {});
+console.log("Objects indexed by ID:", objectById);
+
+// Group objects by whether their ID is even or odd
+const groupedByEvenOdd = originalData.reduce((acc, item) => {
+  const key = item.id % 2 === 0 ? 'even' : 'odd';
+  if (!acc[key]) {
+    acc[key] = [];
+  }
+  acc[key].push(item);
+  return acc;
+}, {});
+console.log("Objects grouped by even/odd ID:", groupedByEvenOdd);
+
+// =========== Combining methods ========== //
+
+// Filter, then map, then reduce - sum of doubled even IDs
+const sumOfDoubledEvenIds = originalData
+  .filter(item => item.id % 2 === 0)
+  .map(item => item.id * 2)
+  .reduce((acc, id) => acc + id, 0);
+console.log("Sum of doubled even IDs:", sumOfDoubledEvenIds);
