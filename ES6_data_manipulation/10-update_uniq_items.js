@@ -1,5 +1,6 @@
 export default function updateUniqueItems(map) {
   // check if the "map" param argument is typeof map
+  // instanceof -> refer to the instance instead of "typeof"
   if (!(map instanceof Map)) {
     throw new Error('Cannot process');
   }
